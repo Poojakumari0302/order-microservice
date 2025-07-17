@@ -1,0 +1,8 @@
+{
+    "line-length": false,
+    "no-inline-html": {
+        "allowed_elements": [
+            "h1", "h2"
+        ]
+    }
+}

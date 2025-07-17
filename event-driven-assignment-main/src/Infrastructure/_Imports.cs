@@ -1,0 +1,9 @@
+global using Domain.OrderAggregate;
+global using Domain.Shared.SeedWork;
+global using Infrastructure.Orders;
+global using Infrastructure.Shared;
+global using System;
+global using System.Data;
+global using System.Linq;
+global using System.Threading;
+global using System.Threading.Tasks;

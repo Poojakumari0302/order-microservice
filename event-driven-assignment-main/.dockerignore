@@ -1,0 +1,19 @@
+/.vscode
+/.template.config
+/.git
+/.gitignore
+
+# Markdown files
+README.md
+SETUP.md
+MIGRATIONS.md
+
+# dev compose files
+docker-compose.yml
+Dockerfile.development
+
+# exclude directories
+elasticsearch-data/**/*
+elasticsearch-data
+rabbitmq-isolated.conf/**/*
+rabbitmq-isolated.conf

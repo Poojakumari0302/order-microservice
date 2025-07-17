@@ -1,0 +1,5 @@
+{
+    "ConnectionStrings": {
+        "default": "User ID=pony;Password=Password1;Server=localhost;Port=5432;Database=orders; Pooling=true;"
+    }
+}
