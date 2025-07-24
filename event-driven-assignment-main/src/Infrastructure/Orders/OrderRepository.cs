@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 namespace Infrastructure.Orders;
 
 /// <inheritdoc/>
@@ -14,7 +15,7 @@ public sealed class OrderRepository(ApplicationDbContext applicationDbContext) :
         return order;
     }
 
-    public async Task<Order?> GetByIdAsync(long orderId)
+    public async Task<Order?> GetByIdAsync(Guid orderId)
     {
         return await _applicationDbContext.Orders
             .AsNoTracking()

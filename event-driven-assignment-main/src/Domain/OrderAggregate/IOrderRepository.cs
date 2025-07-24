@@ -1,3 +1,4 @@
+using System;
 namespace Domain.OrderAggregate
 {
     /// <summary>
@@ -13,7 +14,7 @@ namespace Domain.OrderAggregate
         Task<Order> AddAsync(Order order);
 
         /// Loads an Order aggregate from the data store.
-        Task<Order?> GetByIdAsync(long orderId);
+        Task<Order?> GetByIdAsync(Guid orderId);
         
         /// Persists changes to the order, including any new domain events
         Task SaveAsync(Order order);

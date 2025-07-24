@@ -10,7 +10,7 @@ namespace Domain.OrderAggregate;
 public sealed class Order : DomainEntity
 {
     public OrderNumber OrderNumber { get; init; }
-    public long Id { get; private set; }
+    public Guid Id { get; private set; }
     public OrderStatus Status { get; private set; }
     public DateTime CreatedAtUtc { get; private set; }
 
@@ -31,7 +31,7 @@ public sealed class Order : DomainEntity
 
     private Order() { }
 
-    public Order(long id, DateTime createdAtUtc)
+    public Order(Guid id, DateTime createdAtUtc)
     {
         Id = id;
         CreatedAtUtc = createdAtUtc;

@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 namespace Api.Application.Commands;
-public class CancelOrderCommandHandler
+public class CancelOrderCommandHandler : IRequestHandler<CancelOrderCommand, Order>
 {
     private readonly IOrderRepository _repository;
     private readonly IClock _clock;
@@ -15,7 +15,7 @@ public class CancelOrderCommandHandler
     public CancelOrderCommandHandler(
         IOrderRepository repository,
         IClock clock,
-        ITopicProducer<OrderCanceledEvent> producer) : IRequestHandler<CancelOrderCommand, Order>
+        ITopicProducer<OrderCanceledEvent> producer) ;
     {
         _repository = repository;
         _clock = clock;
