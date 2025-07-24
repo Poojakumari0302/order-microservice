@@ -13,4 +13,27 @@ public sealed class OrderRepository(ApplicationDbContext applicationDbContext) :
         await _applicationDbContext.SaveChangesAsync();
         return order;
     }
+
+    public async Task<Order?> GetByIdAsync(long orderId)
+    {
+        return await _applicationDbContext.Orders
+            .AsNoTracking()
+            .FirstOrDefaultAsync(o => o.Id == orderId);
+    }
+
+    public async Task SaveAsync(Order order)
+    {
+        // Check if it's an update or new insert
+        var existing = await _applicationDbContext.Orders.FindAsync(order.Id);
+        if (existing == null)
+        {
+            _applicationDbContext.Orders.Add(order);
+        }
+        else
+        {
+            _applicationDbContext.Entry(existing).CurrentValues.SetValues(order);
+        }
+
+        await _applicationDbContext.SaveChangesAsync();
+    }
 }

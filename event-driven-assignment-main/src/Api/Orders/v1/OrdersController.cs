@@ -20,4 +20,13 @@ public class OrdersController(
 
         return Ok();
     }
+
+    [HttpPost]
+    [ProducesResponseType(typeof(Order), 201)]
+    public async Task<IActionResult> PostAsync([FromBody]CancelOrderCommand cancelOrderCommand)
+    {
+        await Mediatr.Send(cancelOrderCommand);
+
+        return Ok();
+    }
 }

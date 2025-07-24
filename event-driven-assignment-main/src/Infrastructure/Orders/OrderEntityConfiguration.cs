@@ -9,6 +9,13 @@ public class OrderEntityConfiguration : EntityTypeConfiguration<Order>
     {
         orderConfiguration.ToTable("Orders");
         orderConfiguration.HasKey(b => b.Id);
+        orderConfiguration.Property(o => o.CreatedAtUtc)
+               .IsRequired();
+        orderConfiguration.Property(o => o.Status)
+               .HasConversion<string>() // Store enum as string
+               .IsRequired();
+        //Index on CreatedAtUtc for faster time-range queries
+        orderConfiguration.HasIndex(o => o.CreatedAtUtc);
         orderConfiguration.Ignore(b => b.DomainEvents);
         orderConfiguration.OwnsOne(b => b.OrderNumber, orderNumber =>
             {
